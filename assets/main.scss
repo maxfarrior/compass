@@ -13,7 +13,7 @@ body {
 
 header,
 main {
-	padding: 0 20px;
+	padding: 0 0px;
 }
 
 /*** wrapper div for both header and main ***/
@@ -60,8 +60,8 @@ since it must be aligned with the content */
 }
 
 .logo {
-	width: 96px;
-	height: 96px;
+	width: 192px;
+	height: 192px;
 	display: inline-block;
 	background-size: cover;
 	border-radius: 50%;
@@ -111,40 +111,102 @@ footer {
 }
 
 /*** media queries ***/
+
 /* X-Small devices (phones, 480px and up) */
+
 @media (min-width: 480px) {
-	/* wrapper stays 480px wide past 480px wide and is kept centered */
-	.wrapper {
-		width: 480px;
-		margin: 10% auto 0 auto;
-	}
+
+    /* wrapper stays 480px wide past 480px wide and is kept centered */
+    .wrapper {
+	width: 480px;
+	margin: 10% auto 0 auto;
+    }
 }
 
+
 /* All other devices (768px and up) */
-@media (min-width: 768px) {
-	/* past 768px the layout is changed and the wrapper has a fixed width of 680px
-	to accomodate both the header column and the content column */
-	.wrapper {
-		width: 680px;
-	}
 
-	/* the header column stays left and has a dynamic width with all contents
-	aligned right */
-	header {
-		float: left;
-		width: 46%;
-		text-align: right;
-	}
+/* Home page formatting
+   layout-format = home_page  */
+   
+#home_page {
+    @media (min-width: 768px) {
+        
+        /* past 768px the layout is changed and the wrapper has a fixed width of 680px
+        to accomodate both the header column and the content column */
+        .wrapper {
+                width: 680px;
+        }
 
-	.author-container h1,
-	.logo-container,
-	.tagline-container p {
-		text-align: right;
-	}
+        /* the header column stays left and has a dynamic width with all contents
+        aligned right */
+        header {
+                float: left;
+                width: 46%;
+                text-align: right;
+        }
 
-	main {
-		width: 46%;
-		margin-left: 54%;
-		padding: 0;
-	}
+        .author-container h1,
+        .logo-container,
+        .tagline-container p {
+                text-align: right;
+        }
+
+        main {
+                width: 46%;
+                margin-left: 54%;
+                padding: 0;
+        }
+    }
+}
+
+/*  Content page formatting formatting
+    layout_format : page_with_stuff */
+
+#page_with_stuff {
+    @media (min-width: 1000px) {
+        /* past 1000px the layout is changed and the wrapper has a fixed width of 680px
+        to accomodate both the header column and the content column */
+        .wrapper {
+                width: 1000px;
+                margin-top: 5%;
+        }
+
+        /* the header column stays left and has a dynamic width with all contents
+        aligned right */
+        header {
+                float: left;
+                width: 25%;
+                text-align: right;
+        }
+
+        .author-container h1,
+        .logo-container,   
+        .tagline-container p {
+                text-align: right;
+        }
+
+        main {
+                width: 75%;
+                margin-left: 25%;
+                padding-left: 25px;
+        }
+    }
+}
+
+/*  Content formatting options
+    layout_format: page_with_stuff
+    content_format: <varies>  */
+
+#page_with_stuff .resume_content {
+    text-align: center;
+}
+
+#page_with_stuff .pgp_content {
+    pre code {
+        font-size: x-small;
+    }
+    pre {
+        line-height: .6;
+    }
 }

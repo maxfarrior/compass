@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html>
-  {% include head.html %}
-  <body>
+    {% include html_header.html %}
+  <body id="{{ page.layout_format }}">
 
-  {{ content }}
+    <div class="wrapper">
+        <header>
+            {% if site.config.logo %}
+            <div class="logo-container">
+              <a class="logo" href="/" style="background-image: url('{{ site.baseurl }}{{ site.config.logo }}')"></a>
+            </div>
+            {% endif %}
 
+            {% if site.config.author %}
+            <div class="author-container"><h1>{{ site.config.author }}</h1></div>
+            {% endif %}
+
+            {% if site.compass.tagline %}
+            <div class="tagline-container"><p>{{ site.config.tagline }}</p></div>
+            {% endif %}
+        </header>
+        <main>
+          <div class="{{ page.content_format }}_content">
+            {{ content }}
+          </div>
+        </main>
+    </div>
   </body>
 </html>
+
